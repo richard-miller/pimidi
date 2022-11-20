@@ -24,10 +24,11 @@ ssh
 ssh pi@pimidi.local (or find IP address from local router)
 ```
 
-Apply updates (will take approx 5 mins)
+Apply updates (will take approx 15 mins)
 ```
 sudo apt update
 sudo apt upgrade -y
+sudo reboot
 ```
 
 Enable VNC
