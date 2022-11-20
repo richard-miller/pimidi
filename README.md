@@ -44,3 +44,8 @@ Give the audio group real time priority
 ```
 sudo bash -c  "(echo @audio - rtprio 80; echo @audio - memlock unlimited) > /etc/security/limits.d/audio.conf"
 ```
+
+Connect USB hub via otg cable and connect USB audio dongle to usb hub and test:
+```
+speaker-test -c2 -twav
+```
