@@ -24,7 +24,7 @@ ssh
 ssh pi@pimidi.local (or find IP address from local router)
 ```
 
-Apply updates
+Apply updates (will take approx 5 mins)
 ```
 sudo apt update
 sudo apt upgrade -y
@@ -35,4 +35,6 @@ Enable VNC
 ssh to pi@pimidi.local (or find IP address from local router)
 sudo raspi-config
   Interface Options -> VNC -> Yes -> Finish
+ 
+Test connectivity with VNC client -> pimidi.local
 ```
