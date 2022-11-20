@@ -39,3 +39,8 @@ sudo raspi-config
  
 Test connectivity with VNC client -> pimidi.local
 ```
+
+Give the audio group real time priority
+```
+sudo bash -c  "(echo @audio - rtprio 80; echo @audio - memlock unlimited) > /etc/security/limits.d/audio.conf"
+```
