@@ -49,3 +49,45 @@ Connect USB hub via otg cable and connect USB audio dongle to usb hub and test:
 ```
 speaker-test -c2 -twav
 ```
+
+## 20221227
+
+### Download RasPi OS and uncompress
+```
+wget https://downloads.raspberrypi.org/raspios_lite_armhf/images/raspios_lite_armhf-2022-09-26/2022-09-22-raspios-bullseye-armhf-lite.img.xz
+gunzip 2022-09-22-raspios-bullseye-armhf-lite.img.xz
+```
+
+### Write to SD (use "diskutil list" to find dev)
+```
+diskutil list
+sudo dd bs=1m if=2022-09-22-raspios-bullseye-armhf-lite.img of=/dev/rdisk2
+```
+eject and insert SSD to cause it to mount
+
+### Enable SSH
+```
+touch /Volumes/boot/ssh
+```
+
+### Inject Wifi credentials
+```
+sudo vi /Volumes/boot/wpa_supplicant.conf
+```
+```
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+
+network={
+ ssid="abuklea" 
+ psk="********"
+}
+```
+eject, transfer SD to PI and power up
+
+### Connect to PI and apply updates
+```
+ssh pi@192.160.20.37  # Use wifi router to determine IP - MAC: B8:27:EB:xx:xx:xx
+sudo apt update
+sudo apt upgrade -y
+```
