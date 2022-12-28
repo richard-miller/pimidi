@@ -83,6 +83,10 @@ sudo apt update
 sudo apt upgrade -y
 sudo reboot
 ```
+### Inject ssh key
+```
+ssh pi@pimidi.local  'mkdir ~/.ssh; echo '`cat ~/.ssh/id_rsa.pub`' >> ~/.ssh/authorized_keys'
+```
 
 ### Add pi to the audio group (maybe already a member)
 ```
